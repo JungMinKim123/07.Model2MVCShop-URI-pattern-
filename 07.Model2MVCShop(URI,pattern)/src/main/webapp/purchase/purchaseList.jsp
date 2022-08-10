@@ -32,7 +32,7 @@
 
 <div style="width: 98%; margin-left: 10px;">
 
-<form name="detailForm" action="/listPurchase.do" method="post">
+<form name="detailForm" action="/purchase/listPurchase" method="post">
 
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
 	<tr>
@@ -79,11 +79,11 @@
 	
 	<tr class="ct_list_pop">
 		<td align="center">
-			<a href="/getPurchase.do?tranNo=${ vo.tranNo }">${ vo.tranNo }</a>
+			<a href="/purchase/getPurchase?tranNo=${ vo.tranNo }">${ vo.tranNo }</a>
 		</td>
 		<td></td>
 		<td align="left">
-			<a href="/getUser.do?userId=${ vo.buyer.userId }">${ vo.buyer.userId }</a>
+			<a href="/user/getUser?userId=${ vo.buyer.userId }">${ vo.buyer.userId }</a>
 		</td>
 		<td></td>
 		<td align="left">${ vo.receiverName }</td>
@@ -106,7 +106,7 @@
 		<td align="left">
 			<c:if test="${ !empty vo.tranCode }" >
 			<c:if test="${ fn:trim(vo.tranCode) == 2 }" >
-			<a href="/updateTranCode.do?prodNo=${ vo.purchaseProd.prodNo }&tranCode=3">¹°°ÇµµÂø</a>
+			<a href="/purchase/updateTranCode?prodNo=${ vo.purchaseProd.prodNo }&tranCode=3">¹°°ÇµµÂø</a>
 			</c:if>
 			</c:if>
 		</td>

@@ -26,6 +26,11 @@
   receiver_phone, demailaddr, dlvy_request, tran_status_code, 
   order_data, dlvy_date
   FROM transaction 
+  <if test= "searchKeyword != null" >
+  	<where>
+  		buyer_id = #{searchKeyword}
+  	</where>
+  </if>
   ORDER BY tran_no
 </sql>
 
