@@ -15,7 +15,6 @@
 				
 				http://www.springframework.org/schema/mvc
 				http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    
    <!-- :: 공통적인 사항을 설정한 common-servlet.xml 사용. -->
        
     <!--  ㅇ 어노테이션 기반 :: Spring Framework 사용.
@@ -81,11 +80,13 @@
 	<mvc:resources mapping="/css/**" location="/css/" />
    	<mvc:resources mapping="/images/**" location="/images/" />
    	<mvc:resources mapping="/javascript/**" location="/javascript/" />
+   	<mvc:resources mapping="/images/**" location="/images/" /> 
 	<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
    	
 
 	<!-- 	:: exception resolver  선언 :: 서술적 / 선언적 예외처리 
 			:: Servlet 에서의 선언적 예외처리를 다시 생각하며....  -->
+	<!--  
 	<bean id="exceptionResolver"
 				class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		
@@ -98,6 +99,13 @@
 		
 		<property name="defaultErrorView"	value="/common/error.jsp" />
 		
+	</bean>
+		-->
+	
+	<bean id = "multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding"	value="UTF-8"/>
+		<property name="maxUploadSize"	value="104857560"/>
+		<property name="maxInMemorySize"	value="10485756"/>
 	</bean>
 	
 </beans>
